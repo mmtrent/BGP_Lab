@@ -6,7 +6,7 @@ A hands-on BGP laboratory environment built using **Containerlab** and **Cisco**
 The goal of this project is to simulate a multi-AS environment to master Border Gateway Protocol concepts in a lightweight, containerized environment.
 
 * **Platform:** [Containerlab](https://containerlab.dev/)
-* **Nodes:** Cisco (e.g., IOS-XRv or CSR1000v)
+* **Nodes:** Cisco IOL 17.15.01
 * **Routing Protocols:** BGP (iBGP/eBGP), OSPF/IS-IS (as IGP)
 
 ## 🏗️ Topology
@@ -25,4 +25,4 @@ The laboratory simulates the following environment:
 ### Deployment
 To spin up the lab environment:
 ```bash
-sudo containerlab deploy -t topo.yaml
+sudo containerlab deploy -t bgp_1.clab.yaml
