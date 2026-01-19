@@ -1,0 +1,11 @@
+# Interface design for INET Router
+router_interfaces:
+  - name: Ethernet0/1
+    description: "Link to ISP_1"
+    ipv4: 203.0.113.2/30
+  - name: Ethernet0/2
+    description: "Link to ISP_2"
+    ipv4: 203.0.113.5/30
+  - name: lo0
+    description: "Loopback 0"
+    ipv4: 5.5.5.0/24

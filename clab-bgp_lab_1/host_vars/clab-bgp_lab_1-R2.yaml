@@ -1,0 +1,11 @@
+# Interface design for R2
+router_interfaces:
+  - name: Ethernet0/1
+    description: "Link to Router 1"
+    ipv4: 172.16.1.2/24
+  - name: Ethernet0/2
+    description: "Link to Router 3"
+    ipv4: 10.1.1.2/24
+  - name: lo0
+    description: "Loopback 0"
+    ipv4: 2.2.2.2/32

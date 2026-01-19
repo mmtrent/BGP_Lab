@@ -1,0 +1,35 @@
+---
+- name: Configure Cisco Router Interfaces
+  hosts: all
+  gather_facts: no
+  connection: network_cli
+
+  vars:
+    ansible_network_os: cisco.ios.ios
+    ansible_user: admin
+    ansible_password: admin
+
+  tasks:
+    - name: Apply L3 Interface Configurations
+      cisco.ios.ios_l3_interfaces:
+        config:
+          - name: "{{ item.name }}"
+            ipv4:
+              - address: "{{ item.ipv4 }}"
+        state: merged
+      loop: "{{ router_interfaces }}"
+      when: router_interfaces is defined
+
+    - name: Set Interface Descriptions and Enable
+      cisco.ios.ios_interfaces:
+        config:
+          - name: "{{ item.name }}"
+            description: "{{ item.description }}"
+            enabled: true
+        state: merged
+      loop: "{{ router_interfaces }}"
+      when: router_interfaces is defined
+    
+    - name: Save running to startup when modified
+      cisco.ios.ios_config:
+        save_when: modified
